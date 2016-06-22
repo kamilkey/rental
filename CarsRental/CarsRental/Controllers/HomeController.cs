@@ -11,6 +11,8 @@ namespace CarsRental.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            // testy gita
+
             return View();
         }
     }
