@@ -1,0 +1,37 @@
+﻿@model CarsRental.Models.RentalUsers
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/_LayoutRental.cshtml";
+}
+
+<h2>Logowanie</h2>
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    if(@ViewBag.Message != null)
+    {
+        <div style="border: 1px solid red">
+            @ViewBag.Message
+        </div>
+    }
+    <table>
+    <tr>
+        <td>Login: </td>
+        <td>@Html.TextBoxFor(a=>a.login)</td>
+        <td>@Html.ValidationMessageFor(a=>a.login)</td>
+    </tr>
+    <tr>
+        <td>Hasło: </td>
+        <td>@Html.PasswordFor(a=>a.password)</td>
+        <td>@Html.ValidationMessageFor(a=>a.password)</td>
+    </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Zaloguj"/>
+            </td>
+        </tr>
+    </table>
+}
+

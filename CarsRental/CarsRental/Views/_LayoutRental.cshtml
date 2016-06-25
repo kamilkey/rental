@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div>
+
+    </div>
+    <div class="page">
+
+        <div id="header">
+            <table>
+                <tbody>
+                    <tr>
+                        <td id="left_tab"><h1>Nazwa firmy</h1></td>
+                        <td id="right_tab"><span>| @Html.ActionLink(" Strona startowa ","Index") |
+                            @if(@Session["UserID"] != null){
+                               <text> Witaj, @Session["Username"].ToString() | @Html.ActionLink(" Wyloguj ", "Logout")| </text>
+                            }else{
+                             <text> @Html.ActionLink(" zaloguj ", "Login")|</text>
+                            } 
+                            </span>
+                        </td>  
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="section">
+            @RenderBody()
+        </div>
+
+        <div id="footer">
+            Copyright K.Z.
+        </div>
+
+    </div>
+</body>
+</html>
